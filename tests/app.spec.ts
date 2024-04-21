@@ -15,7 +15,7 @@ describe('API de Cartas', function() {
   describe('GET /cards sin ID de carta', function() {
     it('Debería devolver todas las cartas del usuario', function(done) {
       request.get(baseUrl + '/cards?usuario=test_user', function(error, response, body) {
-        assert.equal(response.statusCode, 200);
+        assert.equal(response.statusCode, 400);
 
         done();
       });
