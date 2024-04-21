@@ -2,7 +2,6 @@ import 'mocha'
 import { expect } from 'chai';
 import { Carta, Tipo, Color, Rareza } from '../src/Carta.js';
 import { ColecciondeCartas } from '../src/ColecciondeCartas.js';
-import { EventEmitterServer } from '../src/server.js';
 import chalk from 'chalk';
 //import { EventEmitter } from "events";
 
@@ -47,7 +46,7 @@ describe ('Tests sobre las cartas', () => {
       };
       coleccion.agregarcarta("test_user", nuevaCarta, (error, result) => {
         expect(error).to.be.undefined;
-        expect(result).to.be.equal(chalk.green(`Carta agregada a la colección de test_user`))
+        expect(result).to.be.equal(`Carta agregada a la colección de test_user`)
         done();
       })
     });
@@ -69,7 +68,7 @@ describe ('Tests sobre las cartas', () => {
 
       coleccion.modificarcarta("test_user", nuevaCarta , (error, result) => {
         expect(error).to.be.undefined;
-        expect(result).to.be.equal(chalk.green(`Carta modificada en la colección de test_user`))
+        expect(result).to.be.equal(`Carta modificada en la colección de test_user`)
         done();
       });
 
@@ -89,7 +88,7 @@ describe ('Tests sobre las cartas', () => {
       };
 
       coleccion.modificarcarta("test_user", nuevaCartamal , (error, result) => {
-        expect(error).to.be.equal(chalk.red('La carta no existe en la colección de test_user'));
+        expect(error).to.be.equal('La carta no existe en la colección de test_user');
         done();
       });
     });
@@ -98,7 +97,7 @@ describe ('Tests sobre las cartas', () => {
       const coleccion = new ColecciondeCartas;
       coleccion.eliminarcarta("test_user", 1, (error, result) => {
         expect(error).to.be.undefined;
-        expect(result).to.be.equal(chalk.green(`Carta eliminada de la colección de test_user`))
+        expect(result).to.be.equal(`Carta eliminada de la colección de test_user`)
         done();
       });
     });

@@ -25,7 +25,7 @@ app.get('/cards', (req, res) => {
   if (Id) {
     Coleccion.mostrarcarta(usuario as string, parseInt(Id.toString()), (error, result) => {
       if (error) {
-        res.send({ error: error });
+        res.status(404).send({ error: error });
       } else {
         res.send({ result: result });
       }
@@ -34,7 +34,7 @@ app.get('/cards', (req, res) => {
     // Si no se proporciona un ID, se listan todas las cartas del usuario.
     Coleccion.listarcartas(usuario as string, (error, result) => {
       if (error) {
-        res.send({ error: error });
+        res.status(400).send({ error: error });
       } else {
         res.send({ result: result });
       }
@@ -53,7 +53,7 @@ app.post('/cards', (req, res) => {
 
   Coleccion.agregarcarta(usuario as string, carta, (error, result) => {
     if(error){
-      res.send({error: error})
+      res.status(400).send({error: error})
     } else {
       res.send({result: result})
     }
@@ -75,7 +75,7 @@ app.delete('/cards', (req, res) => {
     // Se procede a eliminar la carta con el ID especificado.
     Coleccion.eliminarcarta(usuario as string, parseInt(Id!.toString()) , (error, result) => {
       if(error){
-        res.send({error: error})
+        res.status(400).send({error: error})
       } else {
         res.send({result: result})
       }
