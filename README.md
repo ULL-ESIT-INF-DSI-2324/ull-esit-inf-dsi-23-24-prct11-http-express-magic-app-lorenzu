@@ -1,3 +1,6 @@
+
+
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct11-http-express-magic-app-lorenzu/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct11-http-express-magic-app-lorenzu?branch=main)
 ## Introducción
 Express.js es un framework web para Node.js que simplifica el desarrollo de aplicaciones web y APIs. Es minimalista y flexible, permitiendo la creación rápida de servidores HTTP robustos y escalables.
 
