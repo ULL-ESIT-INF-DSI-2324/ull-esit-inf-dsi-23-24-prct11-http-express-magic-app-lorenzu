@@ -28,6 +28,8 @@ export class ColecciondeCartas {
 
     if(fs.existsSync(filePath)){
       callback(`Error: ya existe una carta con ese ID en la colección de ${usuario}`)
+    } else if (nuevaCarta === undefined){
+      callback(`Error: carta no puede ser undefined en la colección de ${usuario}`)
     } else {
       fs.writeFileSync(filePath, JSON.stringify(nuevaCarta));
       callback(undefined, `Carta agregada a la colección de ${usuario}`)

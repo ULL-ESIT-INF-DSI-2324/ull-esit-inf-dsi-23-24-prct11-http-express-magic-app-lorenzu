@@ -61,6 +61,24 @@ app.post('/cards', (req, res) => {
 });
 
 /**
+ * Ruta para modificar una carta existente.
+ * @param {string} usuario - Nombre del usuario.
+ * @param {Carta} carta - Información de la carta a agregar.
+ */
+app.patch('/cards', (req, res) => {
+  const { usuario } = req.query;
+  const carta: Carta = req.body;
+
+  Coleccion.modificarcarta(usuario as string, carta, (error, result) => {
+    if(error){
+      res.status(400).send({error: error})
+    } else {
+      res.send({result: result})
+    }
+  })
+});
+
+/**
  * Ruta para eliminar una carta existente.
  * @param {string} usuario - Nombre del usuario.
  * @param {number} Id - Identificador de la carta a eliminar.
